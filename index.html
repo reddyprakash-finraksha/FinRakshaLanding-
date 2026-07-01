@@ -988,7 +988,7 @@
                     <li><span class="check">✓</span> API access</li>
                     <li><span class="check">✓</span> Email support</li>
                 </ul>
-                <a href="#demo" class="plan-btn outline">Get Started →</a>
+                <button onclick="openPayment()" class="plan-btn outline" style="cursor:pointer;width:100%;">💳 Pay ₹999 & Get Started</button>
             </div>
             <div class="price-card popular">
                 <div class="popular-badge">⭐ MOST POPULAR</div>
@@ -1159,6 +1159,34 @@
             observer.observe(el);
         });
     </script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        function openPayment() {
+            var options = {
+                key: "rzp_test_T73Y1EocojwTXM",
+                amount: 99900,
+                currency: "INR",
+                name: "FinRaksha AI",
+                description: "Starter Plan - Fraud Detection API (Monthly)",
+                handler: function(response) {
+                    document.getElementById("pay-success").style.display = "block";
+                    document.getElementById("pay-success").innerHTML =
+                        "✅ Payment Successful! ID: " + response.razorpay_payment_id +
+                        "<br>API access will be activated within 24 hours.";
+                },
+                prefill: {
+                    name: "",
+                    email: "",
+                    contact: ""
+                },
+                theme: {
+                    color: "#0057FF"
+                }
+            };
+            new Razorpay(options).open();
+        }
+    </script>
+    <div id="pay-success" style="display:none;position:fixed;bottom:30px;right:30px;background:#0A1628;border:1px solid #00E676;color:#00E676;padding:20px 28px;border-radius:14px;font-size:0.9rem;line-height:1.6;z-index:9999;max-width:320px;box-shadow:0 0 32px rgba(0,230,118,0.2);"></div>
 </body>
 
 </html>
