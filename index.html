@@ -1066,15 +1066,15 @@
     <section class="cta-section" id="demo">
         <h2>Ready to Protect<br/>Your Bank?</h2>
         <p>Request a free 14-day pilot. We set it up for you in under 24 hours. No technical team needed.</p>
-        <form class="demo-form" name="demo-request" method="POST" data-netlify="true">
+        <div class="demo-form">
             <input type="text" placeholder="Bank / Organization Name" id="bankName" name="bankName" />
             <input type="email" placeholder="Your Email Address" id="email" name="email" />
-            <button type="submit">Get Free Demo →</button>
+            <button onclick="submitDemo()">Get Free Demo →</button>
 
             <p style="margin-top:20px;font-size:0.8rem;color:var(--grey);">✅ Free 14-day pilot &nbsp;|&nbsp; ✅ No credit card &nbsp;|&nbsp; ✅ Setup in 24 hours</p>
             < id="demo-msg" style="margin-top:20px;font-size:0.9rem;color:var(--green);display:none;">
                 ✅ Thank you! We will contact you within 24 hours.
-        </form>
+        </div>
     </section>
 
     <!-- FOOTER -->
